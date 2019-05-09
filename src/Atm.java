@@ -18,7 +18,7 @@ public class Atm {
         this.valorSaque = saque;
     }
 
-    public int getSaque() {
+    public int getValorSaque() {
         return  this.valorSaque;
     }
 
@@ -38,32 +38,30 @@ public class Atm {
         return nota10;
     }
 
-    public void saqueValorNotas() {
-
-        int descontoSaque = this.valorSaque;
+    public void saqueValorNotas(int descontoSaque) {
 
         do {
 
-            if(descontoSaque >= 100) {
-                this.nota100 ++;
-                break;
+            if(descontoSaque >=  100) {
+                this.nota100 += 1;
+                descontoSaque -= 100;
             }
 
-            if(descontoSaque >=50) {
-                this.nota50 ++;
-                break;
+            else if(descontoSaque >= 50) {
+                this.nota50 +=1 ;
+                descontoSaque -= 50;
             }
 
-            if(descontoSaque >=20) {
-                this.nota20 ++;
-                break;
+            else if(descontoSaque >= 20) {
+                this.nota20 += 1;
+                descontoSaque -= 20;
             }
 
-            if(descontoSaque >=10) {
-                this.nota10 ++;
-                break;
+            else if(descontoSaque >= 10) {
+                this.nota10 += 1;
+                descontoSaque -= 10;
             }
 
-        } while (descontoSaque == 0);
+        } while (descontoSaque != 0);
     }
 }
